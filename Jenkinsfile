@@ -18,6 +18,10 @@ pipeline {
                 //tool 'Android_SDK'
                 echo "branch name $BRANCH"
                 
+                 echo "variant $BUILD"
+                
+                 echo "build variente $env.BUILD"
+                
                 sh 'chmod +x gradlew'
                 // Build the Android project
                 sh './gradlew assembleDebug'
