@@ -39,7 +39,7 @@ pipeline {
                           appName:  'Trial',
                           pathToApp: '**/*.apk',
                           distributionGroups: 'group2',
-                          ownerName: 'nitheeshks91'  
+                          ownerName: 'nitheeshks'  
             }
         }
 
