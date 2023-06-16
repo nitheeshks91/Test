@@ -9,7 +9,7 @@ pipeline {
                 echo "${env.APP}"
                 echo "$BUILD"
                 sh 'chmod +x gradlew'
-                  sh './gradlew assembleCompany$BUILDDebug'
+                  sh "./gradlew assembleCompany${env.BUILD}Debug"
                 archiveArtifacts artifacts: '**/*.apk', fingerprint: true
             }
         }
