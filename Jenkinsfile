@@ -6,8 +6,8 @@ pipeline {
 
         stage('Generate APK') {
             steps {
-                echo ${env.APP}
-                echo $BUILD
+                echo "${env.APP}"
+                echo "$BUILD"
                 sh 'chmod +x gradlew'
                   sh './gradlew assembleCompanyUatDebug'
                 archiveArtifacts artifacts: '**/*.apk', fingerprint: true
