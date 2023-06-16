@@ -19,6 +19,28 @@ android {
     }
     namespace 'com.nitheesh.test'
 
+    flavorDimensions 'app','environment'
+
+    productFlavors {
+
+        own{
+            dimension 'app'
+        }
+
+        company{
+            dimension 'app'
+        }
+
+        sit{
+            dimension 'environment'
+        }
+
+        uat{
+            dimension 'environment'
+        }
+
+    }
+
 }
 
 dependencies {
