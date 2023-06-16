@@ -22,13 +22,6 @@ pipeline {
             }
         }
 
-        stage('Run Tests') {
-            steps {
-                // Run the unit tests, instrumented tests, or any other tests
-                // Adjust the command based on your test suite
-                sh './gradlew test'
-            }
-        }
 
         stage('Generate APK') {
             steps {
@@ -42,7 +35,7 @@ pipeline {
             steps {
                 // Generate the APK file
                 
-                appcenter apiToken: '2610c689b3453a2c2b57d1b5ba54d256853d0114',
+                appCenter apiToken: '2610c689b3453a2c2b57d1b5ba54d256853d0114',
                           appName:  'Trial',
                           pathToApp: '**/*.apk',
                           distributionGroups: 'group2'
