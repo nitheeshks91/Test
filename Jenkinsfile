@@ -16,6 +16,9 @@ pipeline {
                 // Set up the Android SDK and tools
                 // You might need to adjust the paths based on your system configuration
                 //tool 'Android_SDK'
+
+                echo "$ANDROID_SDK"
+
                 echo "branch name $BRANCH"
                 
                  echo "variant $BUILD"
