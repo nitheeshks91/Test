@@ -6,7 +6,7 @@ pipeline {
 
         stage('Generate APK') {
             steps {
-                echo $APP
+                echo ${env.APP}
                 echo $BUILD
                 sh 'chmod +x gradlew'
                   sh './gradlew assembleCompanyUatDebug'
