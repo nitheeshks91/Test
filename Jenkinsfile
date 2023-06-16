@@ -3,44 +3,24 @@ pipeline {
     agent any
 
     stages {
-       // stage('Checkout') {
-     //       steps {
-                // Checkout the source code from your version control system
-                // For example, if using Git:
-       //         git 'https://github.com/your-repo-url.git'
-       //     }
-      //  }
-
-        stage('Build') {
-            steps {
-                // Set up the Android SDK and tools
-                // You might need to adjust the paths based on your system configuration
-                //tool 'Android_SDK'
-                echo "branch name $BRANCH"
-                
-                 echo "variant $BUILD"
-                
-                 echo "build variente $env.BUILD"
-                
-                sh 'chmod +x gradlew'
-                // Build the Android project
-                sh './gradlew assembleDebug'
-            }
-        }
-
-        stage('Run Tests') {
-            steps {
-                // Run the unit tests, instrumented tests, or any other tests
-                // Adjust the command based on your test suite
-                sh './gradlew test'
-            }
-        }
 
         stage('Generate APK') {
             steps {
-                // Generate the APK file
+                sh 'chmod +x gradlew'
                 sh './gradlew assembleDebug'
                 archiveArtifacts artifacts: '**/*.apk', fingerprint: true
+            }
+        }
+
+        stage('Publish') {
+            steps {
+                // Generate the APK file
+                
+                appCenter apiToken: '217caf85fbff3e296f13193668abe03a92eb0eb1',
+                          appName:  'Trial',
+                          pathToApp: '**/*.apk',
+                          distributionGroups: 'group2',
+                          ownerName: 'nitheeshks'  
             }
         }
 
