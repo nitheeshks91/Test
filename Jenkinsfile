@@ -38,5 +38,16 @@ pipeline {
             }
         }
 
+        stage('Publish') {
+            steps {
+                // Generate the APK file
+                
+                appcenter apiToken: '2610c689b3453a2c2b57d1b5ba54d256853d0114',
+                          appName:  'Trial',
+                          pathToApp: '**/*.apk',
+                          distributionGroups: 'group2'
+            }
+        }
+
     }
 }
