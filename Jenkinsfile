@@ -39,7 +39,7 @@ pipeline {
         stage('Generate APK') {
             steps {
                 // Generate the APK file
-                sh './gradlew assembleDebug'
+                sh './gradlew assemble$APP$BUILDDebug'
                 archiveArtifacts artifacts: '**/*.apk', fingerprint: true
             }
         }
